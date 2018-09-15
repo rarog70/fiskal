@@ -19,13 +19,12 @@ except:
 sheet = wb.get_sheet_by_name('Лист1')
 i, s = 10, 1
 while s <= 20:
+    clear_str()
     if s != 20:
         print("Ограничение - 20 строк на лист.\nДля выхода вместо номера набрать 'q'")
-        print("Фискальный накопитель № " + str(s))
+        sn = input("Фискальный накопитель № " + str(s) + "\n$: ")
     else:
-        print("Последний номер фискального накопителя:")
-    sn = input()
-    clear_str()
+        sn = input("Последний номер фискального накопителя\n$: ")
     if sn != "q":
         sheet['A' + str(i)].value = s
         sheet['B' + str(i)].value = "Фискальный накопитель"
