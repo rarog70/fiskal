@@ -20,7 +20,6 @@ except:
 sheet = wb.get_sheet_by_name('Лист1')
 i, s = 10, 1
 while s <= 20:
-    pattern = r"[жЖ]"
     clear_str()
     if s != 20:
         print("Ограничение - 20 строк на лист.\nДля выхода вместо номера набрать 'q'")
@@ -30,7 +29,7 @@ while s <= 20:
     if sn != "q":
         sheet['A' + str(i)].value = s
         sheet['B' + str(i)].value = "Фискальный накопитель"
-        sn = re.sub(pattern, ";", sn)
+        sn = re.sub(r"[жЖ]", ";", sn)
         ser = sn.split(";")
         sheet['C' + str(i)].value = ser[0]
         sheet['D' + str(i)].value = "1"
