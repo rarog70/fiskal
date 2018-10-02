@@ -23,14 +23,14 @@ while s <= 20:
     clear_str()
     if s != 20:
         print("Ограничение - 20 строк на лист.\nДля выхода вместо номера набрать 'q'")
-        sn = input("Фискальный накопитель № " + str(s) + "\n$: ")
+        serial = input("Фискальный накопитель № " + str(s) + "\n$: ")
     else:
-        sn = input("Последний номер фискального накопителя\n$: ")
-    if sn != "q":
+        serial = input("Последний номер фискального накопителя\n$: ")
+    if serial != "q":
         sheet['A' + str(i)].value = s
         sheet['B' + str(i)].value = "Фискальный накопитель"
-        sn = re.sub(r"[жЖ]", ";", sn)
-        ser = sn.split(";")
+        serial = re.sub(r"[жЖ]", ";", serial)
+        ser = serial.split(";")
         sheet['C' + str(i)].value = ser[0]
         sheet['D' + str(i)].value = "1"
         i += 1
