@@ -16,14 +16,14 @@ def clear_str():
 try:
     wb = openpyxl.load_workbook('template.xlsx')
 except:
-    print("Шаблон template.xlsx в каталоге " + pth + " не существует.\nСоздайте шаблон и повторите снова.")
+    print(f"Шаблон template.xlsx в каталоге {pth} не существует.\nСоздайте шаблон и повторите снова.")
 sheet = wb.get_sheet_by_name('Лист1')
 i, s = 10, 1
 while s <= 20:
     clear_str()
     if s != 20:
         print("Ограничение - 20 строк на лист.\nДля выхода вместо номера набрать 'q'")
-        serial = input("Фискальный накопитель № " + str(s) + "\n$: ")
+        serial = input(f"Фискальный накопитель № {str(s)}\n$: ")
     else:
         serial = input("Последний номер фискального накопителя\n$: ")
     if serial != "q":
