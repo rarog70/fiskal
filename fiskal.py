@@ -10,7 +10,7 @@ def clear_str():
     if os.name == "posix":
         os.system("clear")
     elif os.name == "nt":
-        os.system("cls")    
+        os.system("cls")
 
 
 try:
@@ -22,7 +22,7 @@ i, s = 10, 1
 while s <= 20:
     clear_str()
     if s != 20:
-        print("Ограничение - 20 строк на лист.\nДля выхода вместо номера набрать 'q'")
+        print("Ограничение - 20 строк на лист.\nДля выхода введите 'q'")
         serial = input(f"Фискальный накопитель № {str(s)}\n$: ")
     else:
         serial = input("Последний номер фискального накопителя\n$: ")
