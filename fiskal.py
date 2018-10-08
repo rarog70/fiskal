@@ -1,5 +1,6 @@
 import os
 import openpyxl
+from colorama import init, Fore
 import re
 
 pth = os.getcwd()
@@ -15,17 +16,17 @@ def clear_str():
 
 try:
     wb = openpyxl.load_workbook('template.xlsx')
-except:
+except FileNotFoundError:
     print(f"Шаблон template.xlsx в каталоге {pth} не существует.\nСоздайте шаблон и повторите снова.")
 sheet = wb.get_sheet_by_name('Лист1')
 i, s = 10, 1
 while s <= 20:
     clear_str()
     if s != 20:
-        print("Ограничение - 20 строк на лист.\nДля выхода введите 'q'")
-        serial = input(f"Фискальный накопитель № {str(s)}\n$: ")
+        print(Fore.YELLOW + "Ограничение - 20 строк на лист.\nДля выхода введите 'q'")
+        serial = input(Fore.GREEN + f"Фискальный накопитель № {str(s)}\n{Fore.BLUE}$: ")
     else:
-        serial = input("Последний номер фискального накопителя\n$: ")
+        serial = input(Fore.RED + "Последний номер фискального накопителя\n$: ")
     if serial != "q":
         sheet['A' + str(i)].value = s
         sheet['B' + str(i)].value = "Фискальный накопитель"
@@ -38,7 +39,7 @@ while s <= 20:
     else:
         break
 wb.save("АПП_ФН.xlsx")
-print("Файл АПП_ФН.xlsx сформирован")
+print(Fore.GREEN + "Файл АПП_ФН.xlsx сформирован")
 if input("Посмотреть полученый АПП? (y/n)") == "y":
     if os.name == "posix":
         os.system("libreoffice --calc АПП_ФН.xlsx")
