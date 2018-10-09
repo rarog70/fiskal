@@ -17,7 +17,7 @@ def clear_str():
 try:
     wb = openpyxl.load_workbook('template.xlsx')
 except FileNotFoundError:
-    print(f"Шаблон template.xlsx в каталоге {pth} не существует.\nСоздайте шаблон и повторите снова.")
+    print(f"Шаблон template.xlsx в {pth} не существует.\nСоздайте шаблон и повторите снова.")
 sheet = wb.get_sheet_by_name('Лист1')
 i, s = 10, 1
 while s <= 20:
